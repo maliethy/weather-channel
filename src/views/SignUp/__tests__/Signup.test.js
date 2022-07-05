@@ -46,7 +46,10 @@ describe('SignUp Form submit test', () => {
         isAgreePrivateInfoUse: true,
       })
 
-      wrapper.vm.submitForm(event)
+      const submitBtn = wrapper.find('[type=submit]')
+      submitBtn.vm.$emit('click', event)
+      await wrapper.vm.$nextTick()
+
       expect(event.preventDefault).toHaveBeenCalled()
 
       expect(store.dispatch).toHaveBeenCalledWith('user/signup', {

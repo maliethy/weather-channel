@@ -55,29 +55,28 @@
             required
           />
         </div>
-
-        <div class="mt-10 d-flex justify-center">
-          <v-btn
-            type="submit"
-            color="primary"
-            class="mr-4"
-            x-large
-            @click="submitForm"
-          >
-            가입하기
-          </v-btn>
-
-          <v-btn
-            color="orange"
-            x-large
-            dark
-            @click="resetForm"
-          >
-            모두 지우기
-          </v-btn>
-        </div>
       </v-container>
     </v-form>
+    <div class="mt-10 d-flex justify-center">
+      <v-btn
+        type="submit"
+        color="primary"
+        class="mr-4"
+        x-large
+        @click="submitForm"
+      >
+        가입하기
+      </v-btn>
+
+      <v-btn
+        color="orange"
+        x-large
+        dark
+        @click="resetForm"
+      >
+        모두 지우기
+      </v-btn>
+    </div>
   </div>
 </template>
 <script>
