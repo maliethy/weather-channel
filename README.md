@@ -1,15 +1,15 @@
 # The Weather Channel With Vue
 
 - `Vue.js`와 `Vuetify`, `Vue Router`, `Vuex`, `OpenWeather API` 등등을 이용해 만든 날씨정보를 알려주는 웹페이지입니다. fakeServer와 fakeAxios를 통해 JWT로 서버와 통신하는 듯한 효과를 내었습니다.
-- 현재 코드는 `fakeServer`에서 JWT를 만들어 decode해서 클라이언트쪽으로 `accessToken과` `refreshToken과` 함께 `accessTokenExpireTime`과 `refreshTokenExpireTime`을 전달해준다는 시나리오를 바탕으로 작성되었습니다.
+- 현재 코드는 `fakeServer`에서 JWT를 만들어 decode해서 클라이언트쪽으로 `accessToken`, `refreshToken`과 함께 `accessTokenExpireTime`과 `refreshTokenExpireTime`을 전달해준다는 시나리오를 바탕으로 작성되었습니다.
 
 # Project Design
 
 - Dashboard(메인 페이지)에서 현재 위치 또는 원하는 지역을 검색해 간단한 날씨 정보를 볼 수 있습니다.
 - 현재 지역 좌표를 Web API의 Navigator.geolocation를 사용해 구합니다.
-- 해당 좌표를 [Naver Reverse Geocoding](https://api.ncloud-docs.com/docs/ai-naver-mapsreversegeocoding-gc)을통해 행정동명으로 변환합니다.
-- 사용자 검색 기능을 지원하기 위해 [Daum 우편번호 서비스 API](https://postcode.map.daum.net/guide)로 주소를 검색한 후 [Naver Geocoding](https://api.ncloud-docs.com/docs/ai-naver-mapsgeocoding-geocode)를이용해 해당 주소를 좌표로 바꾸어 사용자가 검색한 장소 날씨정보를 가져와 보여줍니다.
-- 상세정보를 원하는 사용자가 아래 세 가지 상황에서 로그인 전에는 모달창을 띄우고회원가입 또는 로그인을 유도합니다. 로그인 후에는 해당 상세 페이지로 이동할 수있습니다.
+- 해당 좌표를 [Naver Reverse Geocoding](https://api.ncloud-docs.com/docs/ai-naver-mapsreversegeocoding-gc)을 통해 행정동명으로 변환합니다.
+- 사용자 검색 기능을 지원하기 위해 [Daum 우편번호 서비스 API](https://postcode.map.daum.net/guide)로 주소를 검색한 후 [Naver Geocoding](https://api.ncloud-docs.com/docs/ai-naver-mapsgeocoding-geocode)를 이용해 해당 주소를 좌표로 바꾸어 사용자가 검색한 장소 날씨정보를 가져와 보여줍니다.
+- 상세정보를 원하는 사용자가 아래 세 가지 상황에서 로그인 전에는 모달창을 띄우고 회원가입 또는 로그인을 유도합니다. 로그인 후에는 해당 상세 페이지로 이동할 수있습니다.
 
   1. Header Navigation에서 '요일별 날씨 보기'(7일), '시간별 날씨 보기 '(48시간 )', '전체 날씨 보기' 중 하나를 클릭
   2. Dashboard의 ‘오늘 날씨’카드에 있는 '자세히' 버튼을 클릭
@@ -42,6 +42,7 @@ password: test
 3. 내 정보 수정하기 페이지
 
 - `setupFakeAxios`에서 `fakeAxios.interceptor.response.use` error callback에서의 호출 순서는 다음과 같습니다.
+
 ```
   fakeAxios.interceptor.response.use((response) => response, async (error) => {
     const originalRequest = error.config
