@@ -5,7 +5,7 @@
     <weather-api-response-alert />
 
     <v-container class="dashboard-container">
-      <v-row class="px-4 py-10">
+      <v-row class="px-4 pt-6 pb-3">
         <v-col
           cols="12"
           md="8"
