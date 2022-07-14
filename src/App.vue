@@ -57,12 +57,12 @@ export default {
     clearInterval(this.intervalGetOneCallApi)
   },
   methods: {
-    async setCurrentPosition(position) {
+    setCurrentPosition(position) {
       const { longitude, latitude } = position.coords
 
-      await this.$store.dispatch('weather/setCurrentCoords', { longitude, latitude })
-      await this.$store.dispatch('weather/getLocationName', { longitude, latitude })
-      await this.$store.dispatch('weather/getOneCallApi', { longitude, latitude })
+      this.$store.dispatch('weather/setCurrentCoords', { longitude, latitude })
+      this.$store.dispatch('weather/getLocationName', { longitude, latitude })
+      this.$store.dispatch('weather/getOneCallApi', { longitude, latitude })
     },
     positionError(error) {
       let userInfo = null
