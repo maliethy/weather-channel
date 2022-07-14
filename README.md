@@ -3,7 +3,7 @@
 - `Vue.js`와 `Vuetify`, `Vue Router`, `Vuex`, `OpenWeather API` 등등을 이용해 만든 날씨정보를 알려주는 웹페이지입니다. fakeServer와 fakeAxios를 통해 JWT로 서버와 통신하는 듯한 효과를 내었습니다.
 - 현재 코드는 `fakeServer`에서 JWT를 만들어 decode해서 클라이언트쪽으로 `accessToken`, `refreshToken`과 함께 `accessTokenExpireTime`과 `refreshTokenExpireTime`을 전달해준다는 시나리오를 바탕으로 작성되었습니다.
 
-# Project Design
+# Project Design[3주차]
 
 - Dashboard(메인 페이지)에서 현재 위치 또는 원하는 지역을 검색해 간단한 날씨 정보를 볼 수 있습니다.
 - 현재 지역 좌표를 Web API의 Navigator.geolocation를 사용해 구합니다.
@@ -21,7 +21,7 @@
 
 # Features
 
-## 1. fakeServer와 fakeAxios 만들기[5주차]
+## 1. fakeServer와 fakeAxios 만들기[4-5주차]
 
 ** 해당 프로젝트 실행 시 회원가입 없이 바로 로그인할 수 있는 테스트계정 정보는 다음과 같습니다.
 ```
@@ -113,7 +113,6 @@ password: test
 
 ### 전체 날씨 보기 페이지(상세 페이지)[8주차]
 
-- 주소로 위치 검색 버튼 넣기
 - 시간별 날씨 정보 기온, 강수량 차트로 보여주기, 바람 정보 카드로 보여주기
 - 요일별 날씨 정보 기온, 강수량 차트로 보여주기, 바람 정보 카드로 보여주기
 
@@ -121,7 +120,7 @@ password: test
 
 - 현재 위치의 날씨정보와 [기상청 기후평년값](https://data.kma.go.kr/normals/info1.do)을 비교하기
 
-- 기후평년값 데이터(src/data/climaticAverageListKorea.js) 조건 
+- 기후평년값 데이터(파일 위치: `src/data/climaticAverageListKorea.js`) 조건 
 
   |항목|내용| 
   |------|---| 
@@ -141,10 +140,10 @@ password: test
 |Vue|vueErrorHandler| 
 |Window|windowOnErrorHandler, windowOnUnhandledRejectionHandler| 
 
- - 에러로그 데이터 localStorage에 저장하기
+ - 에러 발생 시 에러로그 데이터 localStorage에 저장하기
 
  ### Jest test code 작성 및 validation 고도화하기 [11, 12주차]
- - services layer 회원가입 시 이메일 형식 정규식, 위도 경도 범위 유효성 검사, 날씨 데이터 소수점 한자리로 변환하기 함수 test code 작성하기
+ - services layer: 회원가입 시 이메일 형식 정규식, 위도 경도 범위 유효성 검사, 날씨 데이터 소수점 한자리로 변환하기 함수 test code 작성하기
  ```
 │   ├── services
 │   │   ├── __tests__
@@ -153,7 +152,7 @@ password: test
 │   │   │   └── makeWeatherDataToFixedOne.test.js
 ```
 
-- store layer user module signup action, weather module getOneCallApi action test code 작성하기
+- store layer: user module signup action, weather module getOneCallApi action test code 작성하기
 ```
 │   ├── store
 │   │   ├── __tests__
@@ -161,7 +160,7 @@ password: test
 │   │   │   └── weatherActions.test.js
 ```
 
-- view layer signup page submitForm test code 작성하기
+- view layer: signup page submitForm test code 작성하기
 ```
 │       ├── SignUp
 │       │   ├── __tests__
